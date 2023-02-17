@@ -10,16 +10,29 @@ final = [] #Defining the final list where the acceptable difference will be stor
 psi_range = [10,15,30,50,100,150,300,500,1000,1500,2000,2500,3000] #Defining the psi ranges in a list.
 x = input('Enter psi range:') #FS is full scale range.
 FS_psi = int(x) #Convert the str to int.
-print(FS_psi)
+print(FS_psi) 
 
 if FS_psi in psi_range:
     #Enter the code for the actual reading table here.
     #RDG = probably run a for loop through the values in the table.
-    #EG:
-    RDG = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    
+    RDG_10 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693] #readings for psi 10 amd similar
+    RDG_15 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    RDG_30 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    RDG_50 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    RDG_100 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    RDG_150 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    RDG_300 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    RDG_500 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    RDG_1000 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    RDG_1500 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    RDG_2000 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    RDG_2500 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    RDG_3000 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
+    
+    #RDG = 0; #Make a dictionary for the psi ranges and it's values and then call the range and assign it to RDG.
 
-
-    for i in RDG:
+    for i in RDG: #The RDG_xyz should be fetched here.
         #formula = CM_module*0.01*(FS_psi + RDG)
         formula_value = CM_module*0.01*(FS_psi+i)
         final.append(round(formula_value,4))
