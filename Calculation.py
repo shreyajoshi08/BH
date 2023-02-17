@@ -16,6 +16,7 @@ if FS_psi in psi_range:
     #Enter the code for the actual reading table here.
     #RDG = probably run a for loop through the values in the table.
     
+    RDG = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
     RDG_10 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693] #readings for psi 10 amd similar
     RDG_15 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
     RDG_30 = [0.000,5.9585,11.9149,17.8435,23.9402,29.8693]
