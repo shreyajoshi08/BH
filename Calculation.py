@@ -64,7 +64,7 @@ if FS_psi in psi_range:
         }
         }
 
-    RDG = RDG_dict[CM_module][FS_psi]
+    RDG = RDG_dict[CM_str_to_int][FS_psi]
     
     for i in RDG: #The RDG_xyz should be fetched here.
 
