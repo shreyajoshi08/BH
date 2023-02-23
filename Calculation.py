@@ -13,7 +13,7 @@ final = [] #Defining the final list where the acceptable difference will be stor
 psi_range = [10,15,30,50,100,150,300,500,1000,1500,2000,2500,3000] #Defining the psi ranges in a list.
 x = input('Enter psi full scale range:') #FS is full scale range.
 FS_psi = int(x) #Convert the str to int.
-print(FS_psi)
+#print(FS_psi)
 
 if FS_psi in psi_range:
     
