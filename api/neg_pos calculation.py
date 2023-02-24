@@ -1,4 +1,4 @@
-#Program to calculate the Calibration Data
+#Program to calculate the negative Calibration Data
 
 CM_dict = {0: 0.02,1: 0.01,2: 0.005} #Defining dictionaries to retrieve the values.
 
@@ -10,7 +10,7 @@ CM_module = (CM_dict[CM_str_to_int])
 
 final = [] #Defining the final list where the acceptable difference will be stored.
 
-psi_range = [-2,10,15,30,50,100,150,300,500,1000,1500,2000,2500,3000] #Defining the psi ranges in a list.
+psi_range = [10,15,30,50,100,150,300,500,1000,1500,2000,2500,3000] #Defining the psi ranges in a list.
 x = input('Enter psi full scale range:') #FS is full scale range.
 FS_psi = int(x) #Convert the str to int.
 print(FS_psi)
@@ -21,7 +21,6 @@ if FS_psi in psi_range:
     #RDG = probably run a for loop through the values in the table.
     
     RDG_dict = {0:{
-           -2:[0.000,1.9604,3.9937,5.9846,7.9755,9.9666,4.9679,0.000], #psi table is calculated 
            10: [0.000,1.9604,3.9937,5.9846,7.9755,9.9666,4.9679,0.000], #psi table is calculated 
            15: [0.000,2.8322,5.8662,8.9137,11.9614,14.8397,7.3898,0.000], #psi table is calculated 
            30: [0.0000,5.9260,11.9382,17.8655,23.9612,29.8887,14.9635,0.000], #psi table is calculated
@@ -77,6 +76,39 @@ if FS_psi in psi_range:
         final.append(round(formula_value,4))
     print(final)
     
+elif FS_psi == -14:  
+    
+    y = input('Enter full scale range [for negative]:') #FS is full scale range.
+    FS_neg_psi = int(y) #Convert the str to int.
+
+    
+    #code for negative calculation here.
+    RDG_dict = {0:{
+           10: [0.000,1.9604,3.9937,5.9846,7.9755,9.9666,4.9679,0.000], #psi table is calculated 
+           15: [0.000,2.8322,5.8662,8.9137,11.9614,14.8397,7.3898,0.000], #psi table is calculated 
+           30: [0.0000,5.9260,11.9382,17.8655,23.9612,29.8887,14.9635,0.000], #psi table is calculated
+           50: [0.000,9.929,19.919,29.907,39.897,49.886,24.997,0.000], #psi table is calculated 
+           100: [0.000,19.919,39.898,59.8765,79.855,99.834,49.887,0.000], #psi table is calculated 
+           150: [0.000,29.729,59.368,89.855,119.492,149.981,74.612,0.000], #psi table is calculated 
+           300: [0.000,59.3683,119.4921714,179.6191857,239.7450143,299.8687143,149.9804714,0], #psi table is calculated
+           500: [0.000,99.17,199.945,299.875,399.8,499.725,249.91,0.000], #psi table is calculated
+           1000: [0.000,199.94,399.8,599.65,799.505,999.355,499.69,0.000], #psi table is calculated
+           1500: [0.000,299.32,599.63,899.94,1199.25,1499.58,749.78,0.000], #psi table is calculated
+           2000: [0.000,399.43,799.84,1199.25,1599.68,1999.10,999.05,0.000], #psi table is calculated
+           2500: [0.000,499.53,999.05,1499.58,1999.10,2499.62,1249.30,0.000], #psi table is calculated
+           3000: [0.000,599.63,1199.24,1799.88,2399.5,2999.11,1499.56,0.000] #psi table is calculated
+        }}
+    
+    #code for range calculation below
+    
+    RDG = RDG_dict[CM_str_to_int][FS_neg_psi]
+    
+    for i in RDG: #The RDG_xyz should be fetched here.
+
+        #formula = CM_module*0.01*(FS_psi + RDG)
+        formula_value = CM_module*0.01*(FS_neg_psi+i)
+        final.append(round(formula_value,4))
+    print(final)
     
 else:
     print('Incorrect range')
